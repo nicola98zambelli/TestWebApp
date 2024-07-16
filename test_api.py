@@ -18,18 +18,28 @@ class TestCalculatorAPI(unittest.TestCase):
         print("subtract ok")
 
     def test_multiply(self):
+        response = self.client.get("/multiply?a=20&b=10")
+        self.assertEqual(response.json["result"], 200)
         print("multiply ok")
 
     def test_divide(self):
+        response = self.client.get("/divide?a=20&b=10")
+        self.assertEqual(response.json["result"], 2)
         print("divide ok")
 
     def test_power(self):
+        response = self.client.get("/power?base=2&exp=3")
+        self.assertEqual(response.json["result"], 8)
         print("power ok")
 
     def test_square_root(self):
+        response = self.client.get("/square-root?num=49")
+        self.assertEqual(response.json["result"], 7)
         print("square root ok")
 
     def test_modulus(self):
+        response = self.client.get("/modulus?a=5&b=2")
+        self.assertEqual(response.json["result"],1)
         print("modulus ok")
 
 
